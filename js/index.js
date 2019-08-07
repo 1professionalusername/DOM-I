@@ -43,9 +43,46 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 //nav bar links
 const nav = document.querySelectorAll('header nav a')
+
 nav.forEach(function(value, i){
       value.textContent = siteContent.nav[`nav-item-${i + 1}`]
+      
+ //adding color to nav links     
+     nav.forEach(value => {
+       value.style.color = 'green';
+     })
 });
+
+// //Add additional link to end of nav with appendChild()
+//different way to append
+// const newATag = document.createElement('a'); 
+//      newATag.textContent = 'Rockets'
+//      const secondaryContent = document.querySelector('nav');
+//      secondaryContent.append(newATag)
+//      newATag.style.color = 'green';
+
+//Add additional links to beginning of nav with prepend()
+
+//creating new elements
+const newLink1 = document.createElement('a')
+newLink1.textContent = ('home')
+newLink1.style.color = 'green';
+
+const newLink2 = document.createElement('a')
+newLink2.textContent = ('login')
+newLink2.style.color = 'green';
+
+//adding new elements to nav
+const navUpdate = document.querySelector('nav')
+
+navUpdate.prepend(newLink1)
+navUpdate.appendChild(newLink2)
+//navUpdate.style.color = 'green';
+
+
+     
+
+
 //DOM is awesome
 const awesome = document.querySelector('.cta h1')
 awesome.textContent = siteContent['cta']['h1'];
@@ -78,9 +115,12 @@ bottomContent[1].querySelector("p").textContent = siteContent["main-content"]["p
 bottomContent[2].querySelector("h4").textContent = siteContent["main-content"]["vision-h4"];
 bottomContent[2].querySelector("p").textContent = siteContent["main-content"]["vision-content"];
 
-// Bottom Box
+// Contact Info
 const contact = document.querySelector(".contact")
 contact.querySelector("h4").textContent = siteContent["contact"]["contact-h4"];
 contact.querySelectorAll("p")[0].textContent = siteContent["contact"]["address"];
 contact.querySelectorAll("p")[1].textContent = siteContent["contact"]["phone"];
 contact.querySelectorAll("p")[2].textContent = siteContent["contact"]["email"];
+
+const footerText =  document.querySelector('footer p')
+footerText.append(siteContent['footer']['copyright'])
